@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
+
+import Routers from './src/router';
+import configStore from './src/store/config_store';
+
 
 export default class App extends React.Component {
   render() {
