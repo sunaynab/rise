@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209235203) do
+ActiveRecord::Schema.define(version: 20171210002623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "incidents", force: :cascade do |t|
+    t.string "category"
+    t.text "incident_description"
+    t.string "location"
+    t.datetime "time_of_incident"
+    t.string "offender"
+    t.string "victim"
+    t.text "offender_description"
+    t.text "victim_description"
+    t.boolean "confidential"
+    t.string "status"
+    t.string "evidence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_incidents_on_status"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -21,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171209235203) do
     t.string "session_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
   end
 
 end
