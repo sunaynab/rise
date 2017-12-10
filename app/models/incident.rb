@@ -20,8 +20,10 @@
 
 class Incident < ApplicationRecord
   validates :category, :incident_description, :location, :time_of_incident, 
-  :offender, :victim, :offender_description, :victim_description, :confidential,
-  :status, :evidence, presence: true
+  :offender, :victim, :offender_description, :victim_description, :status, :evidence, presence: true
+  
+  validates :confidential, :inclusion => { :in => [true, false] }
+  validates :confidential, :exclusion => { :in => [nil] }
   
   belongs_to :reporter, 
     primary_key: :id,
