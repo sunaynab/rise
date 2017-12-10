@@ -24,5 +24,6 @@ class Api::IncidentsController < ApplicationController
     else
       render json: @incident.errors.full_messages, status: 422
     end
+  end
 
 end
