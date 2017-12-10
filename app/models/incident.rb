@@ -23,6 +23,9 @@ class Incident < ApplicationRecord
   :offender, :victim, :offender_description, :victim_description, :confidential,
   :status, :evidence, presence: true
   
-  
+  belongs_to :reporter, 
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :User
   
 end
